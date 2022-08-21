@@ -1,21 +1,19 @@
 package main
 
 import (
-	"bufio"
+	"flag"
 	"fmt"
-	"os"
 	"strings"
 )
 
 func main() {
+	var src []string
+	flag.Parse()
+	src = flag.Args()
 
-	reader := bufio.NewReader(os.Stdin)
-	tmp, _ := reader.ReadString('\n')
-	str := strings.Split(strings.Trim(tmp, "\n"), " ")
-
-	if strings.Trim(tmp, "\n") == "" {
-		fmt.Println(0)
+	if src[0] == "" {
+		fmt.Println("0")
 	} else {
-		fmt.Println(len(str))
+		fmt.Println(len(strings.Split(src[0], " ")))
 	}
 }
